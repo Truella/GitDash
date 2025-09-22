@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GigFast | Get Paid Today for Your Skills</title>
+
+		<!-- <style>
+			:root {
+				--primary: #2563eb;
+				--secondary: #16a34a;
+				--text-dark: #111827;
+				--text-gray: #6b7280;
+				--bg-light: #f9fafb;
+				--bg-white: #ffffff;
+				--shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+				font-family: "Inter", system-ui, sans-serif;
+			}
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: var(--bg-light);
+				color: var(--text-dark);
+				line-height: 1.5;
+				font-size: 16px;
+			}
+			html {
+				scroll-behavior: smooth;
+			}
+
+			header {
+				background: var(--bg-white);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 1rem;
+				box-shadow: var(--shadow);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+			header .logo {
+				display: flex;
+				align-items: center;
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+			header .logo span {
+				margin-left: 0.5rem;
+			}
+			header nav {
+				display: flex;
+				gap: 1.5rem;
+			}
+			header nav a {
+				text-decoration: none;
+				color: var(--text-gray);
+				font-size: 0.95rem;
+			}
+			header nav a:hover {
+				color: var(--primary);
+			}
+			header .btn {
+				padding: 0.6rem 1rem;
+				border-radius: 0.5rem;
+				background: var(--primary);
+				color: white;
+				font-weight: 600;
+				text-decoration: none;
+				box-shadow: var(--shadow);
+			}
+
+			.hero {
+				padding: 2rem 1rem;
+				text-align: center;
+				background: var(--bg-white);
+			}
+			.hero h1 {
+				font-size: 2rem;
+				font-weight: 800;
+				margin-bottom: 1rem;
+			}
+			.hero h1 span {
+				color: var(--primary);
+			}
+			.hero p {
+				color: var(--text-gray);
+				margin-bottom: 1.5rem;
+			}
+			.hero .actions {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				align-items: center;
+			}
+			.actions a.primary {
+				background: var(--primary);
+				color: white;
+				padding: 1rem 2rem;
+				border-radius: 0.6rem;
+				font-size: 1rem;
+				font-weight: 600;
+				text-decoration: none;
+				width: 100%;
+				max-width: 320px;
+				text-align: center;
+			}
+			.actions a.secondary {
+				border: 1px solid #d1d5db;
+				background: white;
+				padding: 1rem 2rem;
+				border-radius: 0.6rem;
+				font-size: 1rem;
+				font-weight: 500;
+				text-decoration: none;
+				color: var(--text-dark);
+				width: 100%;
+				max-width: 320px;
+				text-align: center;
+			}
+
+			.features-list {
+				margin: 2rem 1rem;
+			}
+			.features-list li {
+				margin: 0.5rem 0;
+				display: flex;
+				align-items: center;
+				color: var(--text-gray);
+			}
+			.features-list li::before {
+				content: "✔";
+				color: var(--secondary);
+				font-weight: bold;
+				margin-right: 0.5rem;
+			}
+
+			.image-card {
+				margin: 2rem 1rem;
+				position: relative;
+				border-radius: 1rem;
+				overflow: hidden;
+				box-shadow: var(--shadow);
+			}
+			.image-card img {
+				width: 100%;
+				display: block;
+			}
+			.mini-card {
+				position: absolute;
+				bottom: 1rem;
+				right: 1rem;
+				background: var(--bg-white);
+				padding: 1rem 1.5rem;
+				border-radius: 0.8rem;
+				box-shadow: var(--shadow);
+				font-size: 0.9rem;
+			}
+			.mini-card h4 {
+				font-weight: 700;
+				margin-bottom: 0.2rem;
+			}
+			.mini-card p {
+				color: var(--text-gray);
+				margin-bottom: 0.3rem;
+			}
+			.mini-card .stars {
+				color: gold;
+			}
+
+			.stats {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1rem;
+				margin: 2rem 1rem;
+			}
+			.stat-card {
+				background: var(--bg-white);
+				padding: 1.5rem;
+				border-radius: 1rem;
+				text-align: center;
+				box-shadow: var(--shadow);
+			}
+			.stat-card .icon {
+				font-size: 1.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.stat-card h3 {
+				font-size: 1.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.stat-card p {
+				color: var(--text-gray);
+				font-size: 0.9rem;
+			}
+
+			.why {
+				padding: 2rem 1rem;
+			}
+			.why h2 {
+				font-size: 1.6rem;
+				font-weight: 800;
+				text-align: center;
+				margin-bottom: 0.5rem;
+			}
+			.why p {
+				text-align: center;
+				color: var(--text-gray);
+				margin-bottom: 2rem;
+			}
+			.benefit {
+				background: var(--bg-white);
+				border-radius: 1rem;
+				padding: 1.5rem;
+				margin-bottom: 1rem;
+				box-shadow: var(--shadow);
+			}
+			.benefit h3 {
+				margin-bottom: 0.5rem;
+			}
+
+			.cta {
+				padding: 2rem 1rem;
+				background: linear-gradient(90deg, #3b82f6, #10b981);
+				color: white;
+				text-align: center;
+			}
+			.cta h2 {
+				font-size: 1.5rem;
+				font-weight: 800;
+				margin-bottom: 1rem;
+			}
+			.cta p {
+				margin-bottom: 1.5rem;
+			}
+			.cta input {
+				padding: 1rem;
+				border: none;
+				border-radius: 0.5rem;
+				width: 90%;
+				max-width: 400px;
+				font-size: 1rem;
+			}
+
+			@media (min-width: 700px) {
+				.hero h1 {
+					font-size: 3rem;
+				}
+				.actions {
+					flex-direction: row;
+					justify-content: center;
+				}
+			}
+		</style>-->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script
+			src="https://kit.fontawesome.com/6e8aee6f47.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<header
+			class="flex justify-between items-center md:px-12 h-[10vh] shadow-md px-4"
+		>
+			<!-- Logo + Mobile Menu Button -->
+			<div class="flex items-center w-full justify-between md:w-auto">
+				<h1 class="font-bold text-3xl">
+					<span>Gig</span
+					><span class="text-[#152085] border-[#152085]">Fast</span>
+				</h1>
+
+				<!-- Mobile Toggle -->
+				<button
+					id="menu-btn"
+					class="md:hidden text-2xl text-[#152085] focus:outline-none"
+				>
+					<i class="fa-solid fa-bars"></i>
+				</button>
+			</div>
+
+			<!-- Nav (Desktop) -->
+			<nav class="hidden md:flex items-center justify-center">
+				<ul class="flex gap-8">
+					<li class="font-bold text-[#152085]">
+						<a href="#students">Students</a>
+					</li>
+					<li class="font-bold text-[#152085]">
+						<a href="#employers">Employers</a>
+					</li>
+				</ul>
+			</nav>
+
+			<!-- CTA (Desktop only) -->
+			<div
+				class="hidden md:block bg-[#152085] text-white px-4 py-2 rounded-full"
+			>
+				<a href="#">Get Started</a>
+			</div>
+		</header>
+
+		<!-- Mobile Menu -->
+		<div
+			id="mobile-menu"
+			class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white shadow-md"
+		>
+			<nav class="flex flex-col items-center gap-6 py-6">
+				<a href="#students" class="font-bold text-[#152085]">Students</a>
+				<a href="#employers" class="font-bold text-[#152085]">Employers</a>
+				<a href="#" class="bg-[#152085] text-white px-4 py-2 rounded-full"
+					>Get Started</a
+				>
+			</nav>
+		</div>
+		<section
+			class="h-[80vh] bg-[#152085] text-white flex flex-col md:flex-row items-center px-8 md:px-16"
+		>
+			<!-- Text content -->
+			<div class="flex-1 flex flex-col justify-center">
+				<!-- Highlight -->
+
+				<!--<p class="font-medium tracking-wide mb-3">
+					<i class="fa-solid fa-bolt fa-2xl"></i> No stress. No waiting. Just
+					vibes.
+				</p>-->
+
+				<!-- Heading -->
+				<h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+					Get That <span class="text-yellow-300">Urgent 2k</span> & More...
+				</h1>
+
+				<!-- Supporting text -->
+				<p class="text-md md:text-xl text-gray-200 max-w-xl mb-8">
+					Quick gigs. Instant pay. Perfect for when you need cash ASAP; whether
+					it’s vibes, data, or that shawarma run.
+				</p>
+
+				<!-- Call to action -->
+				<div>
+					<a
+						href="#"
+						class="bg-yellow-400 text-[#152085] font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 transition"
+					>
+						Start Earning Now
+					</a>
+				</div>
+			</div>
+
+			<!-- Image -->
+			<div
+				class="hidden flex-1 mt-10 md:mt-0 md:flex justify-center items-center h-full"
+			>
+				<div class="grid grid-cols-2 grid-rows-2 h-[80%] w-[80%] gap-4">
+					<div class="bg-blue-500 md:rotate-12">1</div>
+					<div class="bg-red-500 md:rotate-12">2</div>
+					<div class="bg-green-500 md:rotate-12">3</div>
+					<div class="bg-yellow-500 md:rotate-12">4</div>
+				</div>
+			</div>
+		</section>
+
+		<ul class="features-list">
+			<li>No fees to join</li>
+			<li>Instant payments</li>
+			<li>24/7 support</li>
+		</ul>
+
+		<section id="students" class="image-card">
+			<img
+				src="https://picsum.photos/800/400?random=1"
+				alt="Students working on laptops"
+			/>
+			<div class="mini-card">
+				<h4>$247 earned</h4>
+				<p>This week</p>
+				<div class="stars">★★★★★</div>
+				<small>4.9 rating</small>
+			</div>
+		</section>
+
+		<section class="stats">
+			<div class="stat-card">
+				<div class="icon">👤</div>
+				<h3>25k+</h3>
+				<p>Active Students</p>
+			</div>
+			<div class="stat-card">
+				<div class="icon">💼</div>
+				<h3>150k+</h3>
+				<p>Jobs Completed</p>
+			</div>
+			<div class="stat-card">
+				<div class="icon">⭐</div>
+				<h3>4.9</h3>
+				<p>Average Rating</p>
+			</div>
+			<div class="stat-card">
+				<div class="icon">📈</div>
+				<h3>300%</h3>
+				<p>Growth Rate</p>
+			</div>
+		</section>
+
+		<section class="why">
+			<h2>Why Students Choose GigFast</h2>
+			<p>
+				Built specifically for students and fresh graduates who want immediate
+				earning opportunities while building their careers.
+			</p>
+			<div class="benefit">
+				<h3>⚡ Instant Jobs</h3>
+				<p>Find and start working on gigs within minutes</p>
+			</div>
+			<div class="benefit">
+				<h3>💳 Fast Payments</h3>
+				<p>Get paid instantly after completing tasks</p>
+			</div>
+			<div class="benefit">
+				<h3>🛡 Secure Platform</h3>
+				<p>All transactions are protected and verified</p>
+			</div>
+			<div class="benefit">
+				<h3>⏰ Flexible Schedule</h3>
+				<p>Work when you want, how you want</p>
+			</div>
+		</section>
+
+		<section id="employers" class="why">
+			<h2>For Employers</h2>
+			<p>
+				Find qualified, motivated students to complete your projects quickly and
+				affordably.
+			</p>
+			<div class="benefit">
+				<h3>🎯 Top Talent</h3>
+				<p>Access thousands of skilled students ready to work</p>
+			</div>
+			<div class="benefit">
+				<h3>⚡ Fast Hiring</h3>
+				<p>Post jobs and get applications within minutes</p>
+			</div>
+			<div class="benefit">
+				<h3>📊 Affordable Rates</h3>
+				<p>Flexible pricing options to fit your budget</p>
+			</div>
+		</section>
+
+		<section class="cta">
+			<h2>Ready to Start Earning?</h2>
+			<p>
+				Join thousands of students already making money on GigFast. Your first
+				gig is just a click away.
+			</p>
+			<input type="text" placeholder="Enter your email to get started..." />
+		</section>
+		<script>
+			const menuBtn = document.getElementById("menu-btn");
+			const mobileMenu = document.getElementById("mobile-menu");
+			let isOpen = false;
+
+			menuBtn.addEventListener("click", () => {
+				isOpen = !isOpen;
+				if (isOpen) {
+					mobileMenu.classList.remove("max-h-0");
+					mobileMenu.classList.add("max-h-screen");
+					menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'; // change icon to "X"
+				} else {
+					mobileMenu.classList.add("max-h-0");
+					mobileMenu.classList.remove("max-h-screen");
+					menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>'; // back to hamburger
+				}
+			});
+		</script>
+	</body>
+</html>
