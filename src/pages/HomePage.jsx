@@ -1,6 +1,4 @@
 import Hero from "../components/Hero";
-import FeaturesList from "../components/FeaturesList";
-import ImageCard from "../components/ImageCard";
 import Stats from "../components/Stats";
 import Why from "../components/Why";
 import CTA from "../components/CTA";
@@ -12,12 +10,14 @@ import {
 	Target,
 	Zap,
 } from "lucide-react";
+import HowItWorks from "../components/HowItWorks";
+import TrustSecurity from "../components/TrustSection";
+import FAQ from "../components/FAQ";
 
 export default function HomePage() {
 	return (
 		<>
 			<Hero />
-			<FeaturesList />
 			{/*<ImageCard /> */}
 			<Stats />
 			<Why
@@ -72,6 +72,9 @@ export default function HomePage() {
 				]}
 				isEmployer={true}
 			/>
+			<HowItWorks />
+			<TrustSecurity />
+			<FAQ />
 			<CTA />
 		</>
 	);

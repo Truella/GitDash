@@ -1,8 +1,31 @@
+import { useEffect, useRef } from "react";
+import RotatingCard from "./RotatingCard";
+import gsap from "gsap";
+
 export default function Hero() {
+	const containerRef = useRef(null);
+	useEffect(() => {
+		const el = containerRef.current;
+		if (!el) return;
+
+		// Animate from off-screen left into natural position
+		gsap.fromTo(
+			el,
+			{ y: 200, autoAlpha: 0 }, // start hidden and left
+			{
+				y: 0,
+				autoAlpha: 1,
+				duration: 1,
+				ease: "power3.out",
+				onComplete: () => gsap.set(el, { clearProps: "y,autoAlpha" }),
+				// clears inline transform & opacity so Tailwind styles take over
+			}
+		);
+	}, []);
 	return (
-		<section className="h-[80vh] bg-[#152085] text-white flex flex-col md:flex-row items-center px-8 md:px-16">
+		<section className="h-[80vh] bg-[#152085] bg-fixed text-white flex flex-col md:flex-row items-center px-8 md:px-16">
 			{/* Text content */}
-			<div className="flex-1 flex flex-col justify-center">
+			<div className="flex-1 flex flex-col justify-center" ref={containerRef}>
 				<h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
 					Get That <span className="text-yellow-300">Urgent 2k</span> & More...
 				</h1>
@@ -21,13 +44,14 @@ export default function Hero() {
 			</div>
 
 			{/* Image */}
-			<div className="hidden flex-1 mt-10 md:mt-0 md:flex justify-center items-center h-full">
-				<div className="grid grid-cols-2 grid-rows-2 h-[80%] w-[80%] gap-4">
+			{/* <div className="grid grid-cols-2 grid-rows-2 h-[80%] w-[80%] gap-4">
 					<div className="bg-blue-500 md:rotate-12">1</div>
 					<div className="bg-red-500 md:rotate-12">2</div>
 					<div className="bg-green-500 md:rotate-12">3</div>
 					<div className="bg-yellow-500 md:rotate-12">4</div>
-				</div>
+				</div>*/}
+			<div className="hidden flex-1 mt-10 md:mt-0 md:flex justify-center items-center h-full">
+				<RotatingCard />
 			</div>
 		</section>
 	);

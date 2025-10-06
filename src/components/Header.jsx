@@ -6,7 +6,7 @@ export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<header className="flex md:justify-between justify-center  flex-col md:flex-row items-center md:px-12 md:h-[10vh] shadow-md px-4">
+		<header className="flex md:justify-between justify-center  flex-col md:flex-row items-center md:px-12 md:h-[10vh] shadow-md px-4 sticky top-0 bg-gray-50 z-50">
 			{/* Logo */}
 			<div className="flex items-center w-full justify-between md:w-auto h-[10vh]">
 				<h1 className="font-bold text-3xl">
@@ -21,7 +21,7 @@ export default function Header() {
 					onClick={() => setIsOpen(!isOpen)}
 					className="md:hidden text-2xl text-[#152085] focus:outline-none"
 				>
-					{isOpen ? <X size={32}/> : <Menu size={32}/>}
+					{isOpen ? <X size={32} /> : <Menu size={32} />}
 				</button>
 			</div>
 
@@ -38,8 +38,19 @@ export default function Header() {
 			</nav>
 
 			{/* CTA (Desktop) */}
-			<div className="hidden md:block bg-[#152085] text-white px-4 py-2 rounded-full">
-				<Link to="/students">Get Started</Link>
+			<div className="hidden md:flex gap-4 ">
+				<Link
+					to="/login"
+					className="text-[#152085] border border-[#152085] px-4 py-2 rounded-full"
+				>
+					Log In
+				</Link>
+				<Link
+					to="/signup"
+					className="bg-[#152085] border border-[#152085] hover:bg-blue-800 transition-all duration-300 text-white px-4 py-2 rounded-full"
+				>
+					Get Started
+				</Link>
 			</div>
 
 			{/* Mobile Menu */}
@@ -64,7 +75,7 @@ export default function Header() {
 						Employers
 					</Link>
 					<Link
-						to="/students"
+						to="/signup"
 						onClick={() => setIsOpen(false)}
 						className="bg-[#152085] text-white px-4 py-2 rounded-full"
 					>

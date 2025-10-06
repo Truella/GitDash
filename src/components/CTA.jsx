@@ -2,7 +2,7 @@ import { Mail, ArrowRight } from "lucide-react";
 
 export default function CTASection() {
 	return (
-		<section className="relative px-6 py-16 bg-[#152085] text-white text-center mt-20 rounded-2xl md:max-w-5xl mx-auto shadow-xl w-[80%]">
+		<section className="relative px-6 py-16 bg-[#152085] text-white text-center mt-20 rounded-2xl md:max-w-5xl mx-auto shadow-xl w-[90%]">
 			{/* Top accent bar */}
 			<div className="absolute -top-4 left-0 w-full flex justify-center">
 				<div className="w-20 h-2 bg-yellow-300 rounded-full"></div>
@@ -19,7 +19,7 @@ export default function CTASection() {
 				<span className="font-bold text-white">GigFast</span>. Your first gig is
 				just a click away.
 			</p>
-
+ 
 			{/* Input + Button */}
 			<div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
 				{/* Input field */}

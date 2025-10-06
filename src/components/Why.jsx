@@ -5,14 +5,14 @@ export default function Why({ id, title, description, benefits, isEmployer }) {
 				id={id}
 				className={`px-4 py-12 bg-[#152085] md:h-[60vh] text-white flex  justify-center items-center`}
 			>
-				<div className="">
+				<div>
 					<h2 className="text-2xl font-bold text-center mb-2 text-yellow-300">
 						{title}
 					</h2>
 					<p className="text-center mb-8">{description}</p>
 					<div className="md:w-[85vw] mx-auto flex flex-col md:flex-row">
 						{benefits.map((b, idx) => (
-							<div key={idx} className="p-6 mb-4 text-center">
+							<div key={idx} className="p-6 mb-4 text-center flex-1">
 								<div className="flex justify-center">{b.icon}</div>
 								<h3 className="font-semibold mb-2">{b.title}</h3>
 								<p className="">{b.text}</p>
@@ -27,16 +27,20 @@ export default function Why({ id, title, description, benefits, isEmployer }) {
 		return (
 			<section
 				id={id}
-				className={`px-4 py-12 md:h-[60vh] flex justify-center items-center`}
+				className={`py-12 md:h-[60vh] flex flex-col justify-center items-center`}
 			>
-				<div>
+				<div className="w-[85vw]">
 					<h2 className="text-2xl font-bold text-center mb-2">{title}</h2>
+					<div className=" -top-4 left-0 w-full flex justify-center">
+						<div className="w-20 h-2 bg-yellow-300 rounded-full"></div>
+					</div>
+
 					<p className="text-center text-gray-500 mb-8">{description}</p>
-					<div className="md:w-[80vw] mx-auto flex md:gap-8 gap-4 flex-col md:flex-row justify-between">
+					<div className="md:w-[85vw] mx-auto flex md:gap-8 gap-4 flex-col md:flex-row justify-between">
 						{benefits.map((b, idx) => (
 							<div
 								key={idx}
-								className={`p-6 mb-4 text-left rounded-md shadow-2xl w-[350px] h-[180px] ${
+								className={`p-6 mb-4 text-left rounded-md shadow-2xl w-[355px] h-[180px] ${
 									idx === 1 ? "md:translate-y-10 bg-[#152085] text-white" : ""
 								}`}
 							>
