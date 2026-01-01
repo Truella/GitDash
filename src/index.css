@@ -1,1 +1,19 @@
-@import 'tailwindcss'
+@import "tailwindcss";
+body {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+* {
+	box-sizing: border-box;
+}
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+

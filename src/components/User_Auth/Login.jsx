@@ -1,20 +1,53 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-export default function LoginForm({ onLogin, onBack }) {
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/auth";
+import { useAuth } from "../../context/AuthContext";
+
+export default function LoginForm({ onLoginSuccess, onBack }) {
+	const { login } = useAuth();
+	const navigate = useNavigate();
 	const [withEmail, setWithEmail] = useState(true);
 	const [formData, setFormData] = useState({
 		email: "",
 		tel: "",
 		password: "",
 	});
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState("");
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		onLogin(formData); // pass login details back
+		setError("");
+		setLoading(true);
+
+		try {
+			// Prepare the login credentials depending on the method used
+			const credentials = {
+				email: withEmail ? formData.email : "",
+				password: formData.password,
+			};
+
+			// Call backend
+			const res = await loginUser(credentials);
+			const { refresh, access, user } = res;
+
+			// Save tokens
+			await login(user, refresh, access);
+
+			//redirect based on user_type
+			navigate("/dashboard/home", { state: { userType: user.user_type } });
+
+			console.log("✅ Login success:", res);
+		} catch (err) {
+			console.error("❌ Login failed:", err.response?.data || err.message);
+			setError(err.response?.data?.detail || "Invalid credentials");
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	return (
@@ -26,23 +59,32 @@ export default function LoginForm({ onLogin, onBack }) {
 			<h2 className="text-xl font-bold mb-4 text-center text-[#152085]">
 				Login
 			</h2>
+
+			{/* Error Message */}
+			{error && <p className="text-red-600 mb-3 text-center">{error}</p>}
+
+			{/* Email / Phone Input */}
 			{withEmail ? (
 				<input
 					type="email"
 					name="email"
 					placeholder="Email"
+					value={formData.email}
 					onChange={handleChange}
 					required
-					className="w-full p-3 border border-gray-400 rounded-lg outline-none focus:border-2 focus:border-[#152085] transition-all duration-300"
+					className="w-full p-3 border border-gray-400 rounded-lg outline-none 
+                    focus:border-2 focus:border-[#152085] transition-all duration-300"
 				/>
 			) : (
 				<input
 					type="tel"
 					name="tel"
 					placeholder="Phone number"
+					value={formData.tel}
 					onChange={handleChange}
 					required
-					className="w-full p-3 border border-gray-400 rounded-lg outline-none focus:border-2 focus:border-[#152085] transition-all duration-300"
+					className="w-full p-3 border border-gray-400 rounded-lg outline-none 
+                    focus:border-2 focus:border-[#152085] transition-all duration-300"
 				/>
 			)}
 
@@ -53,13 +95,16 @@ export default function LoginForm({ onLogin, onBack }) {
 				Login with {!withEmail ? "email" : "phone number"} instead
 			</p>
 
+			{/* Password Input */}
 			<input
 				type="password"
 				name="password"
 				placeholder="Password"
+				value={formData.password}
 				onChange={handleChange}
 				required
-				className="w-full mb-3 p-3 border border-gray-400 rounded-lg outline-none focus:border-2 focus:border-[#152085] transition-all duration-300"
+				className="w-full mb-3 p-3 border border-gray-400 rounded-lg outline-none 
+                focus:border-2 focus:border-[#152085] transition-all duration-300"
 			/>
 
 			<div className="flex justify-end mb-4">
@@ -68,11 +113,18 @@ export default function LoginForm({ onLogin, onBack }) {
 				</a>
 			</div>
 
+			{/* Submit Button */}
 			<button
 				type="submit"
-				className="w-full px-4 py-2 hover:bg-blue-800 cursor-pointer text-white rounded-lg bg-[#152085] transition-all duration-300"
+				disabled={loading}
+				className={`w-full px-4 py-2 text-white rounded-lg transition-all duration-300 
+				${
+					loading
+						? "bg-blue-800/50 cursor-not-allowed"
+						: "bg-[#152085] hover:bg-blue-800"
+				}`}
 			>
-				Login
+				{loading ? "Logging in..." : "Login"}
 			</button>
 
 			<p className="text-sm text-center mt-4">

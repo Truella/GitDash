@@ -1,8 +1,8 @@
 import { useState } from "react";
 import RoleSelection from "./RoleSelection";
-import SignUpForm from "./SignUpForm.jsx";
-import Preview from "./Preview";
+
 import Confirmation from "./Confirmation";
+import SignUpFormContainer from "./SignUpFormContainer";
 
 export default function SignupFlow() {
 	const [step, setStep] = useState(1);
@@ -20,7 +20,7 @@ export default function SignupFlow() {
 				/>
 			)}
 			{step === 2 && (
-				<SignUpForm
+				<SignUpFormContainer
 					role={role}
 					onBack={() => setStep(1)}
 					onNext={(data) => {
@@ -29,14 +29,7 @@ export default function SignupFlow() {
 					}}
 				/>
 			)}
-			{step === 3 && (
-				<Preview
-					role={role}
-					data={formData}
-					onBack={() => setStep(2)}
-					onConfirm={() => setStep(4)}
-				/>
-			)}
+			
 			{step === 4 && <Confirmation />}
 		</div>
 	);

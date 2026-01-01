@@ -3,7 +3,7 @@ import { Briefcase, GraduationCap } from "lucide-react";
 export default function RoleSelection({ onSelect }) {
 	const roles = [
 		{
-			id: "jobSeeker",
+			id: "jobseeker",
 			title: "Job Seeker",
 			description: "Find gigs and start earning right away.",
 			icon: (

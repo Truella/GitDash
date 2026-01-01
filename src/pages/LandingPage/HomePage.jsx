@@ -1,7 +1,7 @@
-import Hero from "../components/Hero";
-import Stats from "../components/Stats";
-import Why from "../components/Why";
-import CTA from "../components/CTA";
+import Hero from '../../components/Hero'
+import Stats from "../../components/Stats";
+import Why from "../../components/Why";
+import CTA from "../../components/CTA";
 import {
 	ChartNoAxesCombined,
 	Clock,
@@ -10,14 +10,14 @@ import {
 	Target,
 	Zap,
 } from "lucide-react";
-import HowItWorks from "../components/HowItWorks";
-import TrustSecurity from "../components/TrustSection";
-import FAQ from "../components/FAQ";
+import HowItWorks from "../../components/HowItWorks";
+import TrustSecurity from "../../components/TrustSection";
+import FAQ from "../../components/FAQ";
 
 export default function HomePage() {
 	return (
 		<>
-			<Hero />
+			<Hero /> 
 			{/*<ImageCard /> */}
 			<Stats />
 			<Why
